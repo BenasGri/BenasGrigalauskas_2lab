@@ -20,8 +20,12 @@ w21 = rand(1);
 w22 = rand(1);
 w23 = rand(1);
 w24 = rand(1);
-%antro s
+%antro sluoksnio bias
+b21 = rand(1);
 
+for i = 1:20;
+
+end
 function y = f1(x)
     y = (1 + 0.6 * sin((2*pi*x)/0.7)) + ((0.3 * sin(2*pi*x))/2);
 end
