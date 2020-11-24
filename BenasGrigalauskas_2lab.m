@@ -29,6 +29,11 @@ for i = 1:20
     v12 = x(i)*w12+b12;
     v13 = x(i)*w13+b13;
     v14 = x(i)*w14+b14;
+    %Aktyvaviams
+    y1 = 1/(1+exp((-1)*v11));
+    y2 = 1/(1+exp((-1)*v12));
+    y3 = 1/(1+exp((-1)*v13));
+    y4 = 1/(1+exp((-1)*v14));
 end
 
 function y = f1(x)
