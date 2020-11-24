@@ -22,6 +22,8 @@ w23 = rand(1);
 w24 = rand(1);
 %antro sluoksnio bias
 b21 = rand(1);
+%pagrindines funkcijos rezultatai
+ypgr = f1(x);
 
 for i = 1:20
     %Tinklo atsako skaiciavimas
@@ -34,6 +36,8 @@ for i = 1:20
     y2 = 1/(1+exp((-1)*v12));
     y3 = 1/(1+exp((-1)*v13));
     y4 = 1/(1+exp((-1)*v14));
+    %Isejimas
+    y(i) = y1*w21 + y2*w22 + y3*w23 + y4*w24 + b21;
 end
 
 function y = f1(x)
