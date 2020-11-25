@@ -33,15 +33,19 @@ for n = 1:10000
         v12 = x(i)*w12+b12;
         v13 = x(i)*w13+b13;
         v14 = x(i)*w14+b14;
+        
         %Aktyvaviams
         y1 = 1/(1+exp((-1)*v11));
         y2 = 1/(1+exp((-1)*v12));
         y3 = 1/(1+exp((-1)*v13));
         y4 = 1/(1+exp((-1)*v14));
+        
         %sigmoidine aktyvavimo funkcija
         y(i) = y1*w21 + y2*w22 + y3*w23 + y4*w24 + b21;
+        
         %klaidos radimas
         e(i) = ypgr(i) - y(i);
+        
         %antro sluoksnio parametru atnaujimas
         w21 = w21 + eta*e(i)*x(i);
         w22 = w22 + eta*e(i)*x(i);
@@ -49,6 +53,7 @@ for n = 1:10000
         w24 = w24 + eta*e(i)*x(i);
 
         b21 = b21 + eta*e(i);
+        
         %pirmo sluoksnio parametru atnaujinimas
         w11 = w11 + eta*e(i)*y1*(1-y1)*w21*x(i);
         w12 = w12 + eta*e(i)*y2*(1-y2)*w22*x(i);
