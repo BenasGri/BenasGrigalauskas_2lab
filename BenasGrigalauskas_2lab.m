@@ -37,7 +37,7 @@ for i = 1:20
     y2 = 1/(1+exp((-1)*v12));
     y3 = 1/(1+exp((-1)*v13));
     y4 = 1/(1+exp((-1)*v14));
-    %Isejimas
+    %sigmoidine aktyvavimo funkcija
     y(i) = y1*w21 + y2*w22 + y3*w23 + y4*w24 + b21;
     %klaidos radimas
     e(i) = ypgr(i) - y(i);
@@ -48,6 +48,16 @@ for i = 1:20
     w24 = w24 + eta*e(i)*x(i);
     
     b21 = b21 + eta*e(i);
+    %pirmo sluoksnio parametru atnaujinimas
+    w11 = w11 + eta*e(i)*y1*(1-y1)*w21*x(i);
+    w12 = w12 + eta*e(i)*y2*(1-y2)*w22*x(i);
+    w13 = w13 + eta*e(i)*y3*(1-y3)*w23*x(i);
+    w14 = w14 + eta*e(i)*y4*(1-y4)*w24*x(i);
+    
+    b11 = b11 + eta*e(i)*y1*(1-y1)*w21;
+    b12 = b12 + eta*e(i)*y2*(1-y2)*w22;
+    b13 = b13 + eta*e(i)*y3*(1-y3)*w23;
+    b14 = b14 + eta*e(i)*y4*(1-y4)*w24;
 end
 
 function y = f1(x)
